@@ -1,0 +1,187 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+body{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+/* Estilos del menú lateral */
+.menu {
+    grid-area: MENU;
+    height: 100vh;
+    /*width: 20%;*/
+    background-color: #f0f0f0;
+    /*position: fixed;*/
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-logo {
+    width: 70%;
+    margin: 5% 0;
+}
+
+.menu-link {
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    /*border-bottom: 1px solid #ccc;*/
+}
+
+.menu-link:hover {
+    background-color: #eee;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    color: #408274;
+}
+
+.menu-link.active {
+    background-color: #ddd;
+}
+
+/* Estilos del contenido principal */
+.main {
+    grid-area: CENTRAL;
+    background-image: url(../img/Trigo.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.opacidad{
+    background-color: rgba(253,252,231, 0.4);
+    height: 100%;
+    padding: 4%;
+   
+}
+
+.main-title {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+.main-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.main-image {
+    width: 100%;
+    height: 20em;
+    object-fit: cover;
+    filter: none;
+    transition: filter 0.5s;
+}
+
+.main-image:hover {
+    filter: grayscale(100%);
+}
+
+/* Estilos del footer */
+.footer {
+    grid-area: PIE;
+    /*width: 100%;*/
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 20px;
+    align-items: center;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-contact-item {
+    margin: 10px;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.footer-social-icon {
+    font-size: 1.2em;
+    margin-right: 3%;
+    text-decoration: none;
+    color: #eee;
+}
+.footer-social a{
+    text-decoration: none;
+    color: #eee;
+    width: 100%;
+}
+.footer-social a:hover{
+    color: #408274;
+}
+
+/* Grid css*/
+.grilla{
+    display: grid;
+    grid-template-areas: 
+    "MENU CENTRAL"
+    "MENU CENTRAL"
+    "PIE PIE"
+       
+    ;
+    grid-template-columns: 1fr 3fr;
+}
+
+/* Media queries para dispositivos pequeños */
+@media screen and (max-width: 576px) {
+   
+   .menu-logo{
+        width: 20%;
+        margin: 2%;
+    }
+    .main-title{
+        font-size: 1.8em;
+    }
+    
+}
+
+@media screen and (max-width: 992px) {
+    .grilla{
+        display: grid;
+        grid-template-areas: 
+        "MENU"
+        "CENTRAL"
+        "PIE"
+        ;
+        grid-template-columns: 1fr;
+    }
+    .menu{
+        height: auto;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .menu-logo{
+        width: 100px;
+        margin: 1%;
+    }
+    .main-title{
+        font-size: 2.2em;
+    }
+    .main-gallery{
+        grid-template-columns: 1fr;
+    }
+    .footer{
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
